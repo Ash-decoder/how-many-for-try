@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>How Many? 👽</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 100vh;
+    }
+
+    .card {
+      width: 350px;
+      background: #1e1e1e;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    .question {
+      margin: 20px 0;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    input {
+      width: 80%;
+      padding: 12px;
+
+      border: none;
+      border-radius: 10px;
+
+      font-size: 18px;
+      text-align: center;
+
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+
+      border: none;
+      border-radius: 10px;
+
+      background: #4caf50;
+      color: white;
+
+      font-size: 16px;
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #66d36f;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 50px;
+    }
+
+    .small {
+      opacity: 0.7;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <h1>How Many? 💀</h1>
+
+    <div class="question">
+      How many countries are in Africa?
+    </div>
+
+    <input
+      type="number"
+      id="guessInput"
+      placeholder="Enter number..."
+    />
+
+    <br>
+
+    <button onclick="checkAnswer()">
+      Submit Guess 👽
+    </button>
+
+    <div class="result" id="resultBox">
+      Waiting for your guess...
+    </div>
+
+    <div class="small">
+      Simple browser game demo 🤡
+    </div>
+
+  </div>
+
+  <script>
+
+    // Real answer
+    const realAnswer = 54;
+
+    function checkAnswer() {
+
+      // Input value
+      const guess =
+        Number(document.getElementById("guessInput").value);
+
+      // Result element
+      const resultBox =
+        document.getElementById("resultBox");
+
+      // Difference calculate
+      const difference =
+        Math.abs(realAnswer - guess);
+
+      // Feedback system 👽
+      if (guess === realAnswer) {
+
+        resultBox.innerHTML =
+          "PERFECT 💀 You got it exactly!";
+
+      }
+      else if (difference <= 3) {
+
+        resultBox.innerHTML =
+          "Very close 👽<br>Correct answer was 54";
+
+      }
+      else if (difference <= 10) {
+
+        resultBox.innerHTML =
+          "Not bad 🤡<br>Correct answer was 54";
+
+      }
+      else {
+
+        resultBox.innerHTML =
+          "Way off 💀<br>Correct answer was 54";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
